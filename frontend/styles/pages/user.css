@@ -14,3 +14,9 @@
   font-size: 1.2em;
   font-weight: bold;
 }
+
+.userPage .companyInfo .field-key {
+  display: inline-block;
+  margin-right: 0.4em;
+  font-weight: bold;
+}
