@@ -21,6 +21,9 @@
     "paths": {
       "@/components/*": [
         "components/*"
+      ],
+      "@/services/*": [
+        "services/*"
       ]
     },
     "incremental": true
