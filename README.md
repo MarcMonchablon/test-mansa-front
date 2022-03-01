@@ -2,86 +2,96 @@
 <h1 align="center">Mansa's Kanedama</h1>
 <p align="center">Take home test to <b>join us</b> 💜</p>
 
-## Introduction
 
-At Mansa, we are on a mission to make the life of freelancers easier, by
-reducing the time they spend on administrative tasks and providing them the
-financial support they deserve. We strive to offer to this underserved
-population loans that are easily accessible, with lower interest rates and
-longer terms. To achieve this, we are developing a platform that involves
-the entire product chain and we aim to become leader in credit services in
-Europe.
+My version of Mansa's frontend test :)
 
-To face this challenge, we need people who believe in the impact of our
-business on a country's economy, and who have ideas to improve people's daily
-lives. More than that, we are looking for teammates who are not satisfied
-with the obvious, who get involved without being afraid of making mistakes,
-and who are eager to learn and inspire others.
 
-We provide you **3 different tests**:
+# Preface: the project scope
 
-- **[Backend Engineer](backend)**
-- **[Frontend Engineer](frontend)**
-- **[Data Scientist](datascience)**
+One of the first requirement was: "The view should only be for **one** single user."
 
-A fourth test for **Infrastructure Engineer** is being created.
+At first I though it meant that the view is user-specific,
+and thus should be routed as `/user/:userId`, implying that there may
+be other users;
 
-You'll learn more about the tasks we ask you to solve in their respective
-`README.md` files.
+But on second tought, I interpreted that as "There is no need to handle multiple-users",
+which would also make sense if the user is attached to a logged-in session,
+and we are emulating something like a `/account` or `/user-settings` page.
 
-Good luck! 💥
+For this short demo, I choose the later option,
+with the logged-in session logic being (crudely) emulated
+via Next.js `getServerSideProps()`.
 
-## Delivery
 
-For each test, we provide you a starter project to work on. This way, you'll
-avoid the hassle to setup one yourself. Start within a minute by clicking
-the `Use this template` button above this README. You'll be asked to create
-either a public or private repository.
 
-> Please note that after submission, if you repository is private, we
-> may ask you to add several people to it to ease the review
-> process.
+# Marc Monchablon's design document
 
-<details>
-<summary>You do not want to add us to your repository?</summary>
+## Directory structure
 
-Git can create a standalone bundle of your repository containing all the
-commit history:
+# TODO
+I hesitated between 
 
-```bash
-git bundle create <yourname>.bundle --all
-```
+Another, alternative structure that I would use in a real-word project
+would be more module-centric:
 
-</details>
+ - package.json
+ - ...
+ - modules
+   - user
+     - api
+     - components
+ - pages
+   - ...
+ 
 
-Feel free to add a `README.md` file explaining the decisions you've made
-solving the tasks including technology and library choices, and instructions
-required to run your solution and tests.
 
-## Q&A
+# Addendum
 
-> Where should I send back the result when I'm done?
+## CSS architecture
 
-Fork this repo and send us a pull request when you think you are done. There
-is no deadline for this task unless otherwise notified to you directly. You can
-also directly send me your bundle by email at remy.tinco'@'getmansa'.com.
+My front-end career so far has been more Angular-oriented,
+so I haven't had a lot of experience with `styled-components`,
+but it has some similarity with the component-scoped CSS feature
+that Angular 2+ offers.
 
-> There's something on the task I don't understand
+In multiple projects I've been very happy with a mixed approach
+of classic CSS and component-scoped CSS:
 
-If you have a doubt and can't reach us to clarify it, make the assumption that
-feels more natural, document it and move on. We will evaluate based on that
-assumption.
+ - Keep most of the CSS under a `styles/` directory,
+ splitted by pages, components, and the usual `reset.css`-type files.
 
-> Can I have some extra time to add more features?
+ - Have a handful of component-scoped CSS, either because I have to
+ do some layout that I know will be specific to this very component,
+ or because I want to declare CSS classes that are manipulated by the
+ component logic.
 
-Adding extra features is great and we will look at them as well. But the
-best thing you can do if you have extra time is to perfect as much as you
-can the features that are already required. For example, try adding tests
-or more documentation, we will value that more than having a user management
-module.
 
-> What if I have a question?
+Having classic CSS as the default styling strategy allowed my colleagues and I:
+ - to take advantage of the good sides of the CSS cascade,
+ - to work with integrators even when they didn't knew the
+ intricacies of the JS framework used,
+ - and generally offered a nice experience when manipulating CSS in the inspector,
 
-Just create a new issue in this repo and we will get back to you quickly.
-You can also send an email directly to remy.tinco'@'getmansa'.com. Asking
-questions is good. We will not penalize you for asking questions.
+all of which made it in my experience a worthwhile tradeoff, even with the pain sometime cause by its unscoped nature.
+
+
+About the debugging experience, I'm a bit concerned by the lack of sourcemap in `styled-components`, both now and in the forseable future, since the maintainers consider it to be low priority eye-candy.
+(cf https://github.com/styled-components/styled-components/issues/827)
+This alone makes me weight heavily against using `styled-components` as the default styling strategy.
+
+
+With that said, the ability to have a nice way to use props in style,
+and to colocate components with it's style give make it a nice tool
+to use in some specific cases.
+
+
+
+### Small issue between Next.js and styled-components
+
+I sometime got 'React hydration error', causing unstyled components due
+to the way Next.js is configured.
+
+One fix needed to add a .babelrc conf, which unfortunately disabled the SWC, thankfully the latest (12.1.x) version of Next.js specifically included a fix for `styled-components` with SWC. It still had the issue after upgrading but
+at least it's prioritized by the Next.js team :)
+
+

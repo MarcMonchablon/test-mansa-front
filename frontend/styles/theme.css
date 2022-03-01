@@ -1,0 +1,9 @@
+body {
+  --headerTextColor: white;
+  --headerBackground: indianred;
+  --headerBorderColor: rgba(0, 0, 0, 0.3);
+
+  --mainTextColor: indianred;
+  --mainBackground: pink;
+  --testBackground: rgba(0, 0, 0, 0.05);
+}

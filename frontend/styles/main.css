@@ -1,0 +1,13 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--testBackground);
+}
+
+.page {
+  flex-grow: 1;
+  padding: 1em;
+  color: var(--mainTextColor);
+  background: var(--mainBackground);
+}
