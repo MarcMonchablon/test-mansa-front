@@ -6,7 +6,6 @@ export interface Company {
 }
 
 
-
 export async function fetchCompany(siren: string): Promise<Company | null> {
   const url = 'https://entreprise.data.gouv.fr/api/sirene/v3/unites_legales/:siren'
     .replace(':siren', siren);

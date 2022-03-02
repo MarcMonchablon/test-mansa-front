@@ -8,7 +8,7 @@ import { User, getUser } from '@/services/session';
 import MainLayout from '@/components/MainLayout/MainLayout';
 import UserTitle from '@/components/UserTitle/UserTitle';
 import CompanySection from '@/components/CompanySection/CompanySection';
-import AccountsInfoSection from '@/components/AccountsInfoSection/AccountsInfoSection';
+import AccountsSection from '@/components/AccountsSection/AccountsSection';
 
 interface UserPageProps {
   user: User;
@@ -29,7 +29,7 @@ export default function UserPage(props: UserPageProps) {
       <div className="page userPage">
         <UserTitle user={user} />
         <CompanySection siren={user.siren || null} />
-        <AccountsInfoSection userId={user.id} />
+        <AccountsSection userId={user.id} />
       </div>
     </MainLayout>
   );

@@ -15,8 +15,23 @@
   font-weight: bold;
 }
 
+/* Company section */
 .userPage .companyInfo .field-key {
   display: inline-block;
   margin-right: 0.4em;
   font-weight: bold;
+}
+
+/* Accounts section */
+.userPage .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.userPage .account-card {
+  min-width: 20em;
+  margin: 0.5em;
+  padding: 0.5em;
+
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid red;
 }

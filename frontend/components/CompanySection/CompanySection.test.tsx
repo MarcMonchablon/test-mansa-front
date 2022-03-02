@@ -7,7 +7,7 @@ import CompanySection from './CompanySection';
 
 
 // === SETUP =====================================
-let container: Element;
+let container: Element | null;
 
 beforeEach(() => {
   container = document.createElement('div');
@@ -18,7 +18,7 @@ afterEach(() => {
   if (!container) { return; }
   unmountComponentAtNode(container);
   container.remove();
-  // container = null;
+  container = null;
 });
 
 
@@ -42,9 +42,7 @@ const MOCK_COMPANY: Company = {
 describe('CompanySection', () => {
   beforeEach(() => {
     (fetchCompany as MockedFetchCompany)
-      .mockImplementation(async (siren: string) => {
-        return MOCK_COMPANY;
-      });
+      .mockImplementation(async (siren: string) => MOCK_COMPANY);
   });
 
   afterEach(() => {
