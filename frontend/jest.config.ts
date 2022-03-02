@@ -16,6 +16,7 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/services/(.*)$': '<rootDir>/services/$1',
+    '^@/models/(.*)$': '<rootDir>/models/$1',
   },
 }
 

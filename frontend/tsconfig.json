@@ -24,7 +24,10 @@
       ],
       "@/services/*": [
         "services/*"
-      ]
+      ],
+      "@/models/*": [
+        "models/*"
+      ],
     },
     "incremental": true
   },

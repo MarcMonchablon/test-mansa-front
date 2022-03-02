@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Company, fetchCompany } from '@/services/company';
+import { Status } from '@/models/status.model';
 
-
-enum Status {
-  LOADING = 'loading',
-  OK = 'ok',
-  NO_DATA = 'no-data',
-  ERROR = 'error',
-}
 
 interface CompanySectionProps {
   siren: string | null;
 }
-
 
 export default function CompanySection(props: CompanySectionProps) {
   const [status, setStatus] = useState<Status>(Status.LOADING);
