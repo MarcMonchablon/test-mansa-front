@@ -1,5 +1,5 @@
 import React from 'react';
-import { User } from '@/services/session';
+import { User } from '@/services/session.service';
 
 
 interface UserTitleProps {

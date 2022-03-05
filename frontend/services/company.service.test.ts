@@ -1,4 +1,4 @@
-import { Company, fetchCompany } from '@/services/company';
+import { Company, fetchCompany } from '@/services/company.service';
 
 
 // === SETUP ====================================

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Account } from '@/services/accounts';
+import { Account } from '@/services/accounts.service';
 
 
 type AccountCardProps = {

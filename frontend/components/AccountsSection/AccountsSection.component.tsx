@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Account, fetchAccounts } from '@/services/accounts';
+import { Account, fetchAccounts } from '@/services/accounts.service';
 import { Status } from '@/models/status.model';
-import AccountCard from '@/components/AccountsSection/AccountCard';
+import AccountCard from '@/components/AccountsSection/AccountCard.component';
 
 
 interface AccountsSectionProps {

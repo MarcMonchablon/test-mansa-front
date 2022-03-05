@@ -4,11 +4,11 @@ import {
   GetServerSidePropsResult as SspResult
 } from 'next';
 
-import { User, getUser } from '@/services/session';
-import MainLayout from '@/components/MainLayout/MainLayout';
-import UserTitle from '@/components/UserTitle/UserTitle';
-import CompanySection from '@/components/CompanySection/CompanySection';
-import AccountsSection from '@/components/AccountsSection/AccountsSection';
+import { User, getUser } from '@/services/session.service';
+import MainLayout from '@/components/MainLayout/MainLayout.component';
+import UserTitle from '@/components/UserTitle/UserTitle.component';
+import CompanySection from '@/components/CompanySection/CompanySection.component';
+import AccountsSection from '@/components/AccountsSection/AccountsSection.component';
 
 interface UserPageProps {
   user: User;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Company, fetchCompany } from '@/services/company';
+import { Company, fetchCompany } from '@/services/company.service';
 import { Status } from '@/models/status.model';
 
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import { Company, fetchCompany } from '@/services/company';
-import CompanySection from './CompanySection';
+import { Company, fetchCompany } from '@/services/company.service';
+import CompanySection from './CompanySection.component';
 
 
 // === SETUP =====================================
@@ -25,8 +25,8 @@ afterEach(() => {
 // === MOCKS ====================================
 type MockedFetchCompany = jest.MockedFunction<typeof fetchCompany>;
 
-jest.mock('@/services/company', () => ({
-  ...jest.requireActual('@/services/company'),
+jest.mock('@/services/company.service', () => ({
+  ...jest.requireActual('@/services/company.service'),
   fetchCompany: jest.fn(),
 }));
 

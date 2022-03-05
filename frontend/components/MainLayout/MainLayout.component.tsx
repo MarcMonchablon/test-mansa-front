@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '@/components/Header/Header';
+import Header from '@/components/MainLayout/Header.component';
 
 
 export default function MainLayout(props: any) {

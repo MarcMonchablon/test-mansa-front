@@ -2,8 +2,8 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import AccountCard from './AccountCard';
-import { Account } from '@/services/accounts';
+import AccountCard from './AccountCard.component';
+import { Account } from '@/services/accounts.service';
 
 
 // === SETUP =====================================

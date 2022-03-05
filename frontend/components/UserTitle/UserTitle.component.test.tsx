@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-import { User } from '@/services/session';
-import UserTitle from './UserTitle';
+import { User } from '@/services/session.service';
+import UserTitle from './UserTitle.component';
 
 
 // === SETUP =====================================

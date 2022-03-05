@@ -2,9 +2,9 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import { Account, fetchAccounts } from '@/services/accounts';
-import AccountsSection from './AccountsSection';
-import AccountCard from './AccountCard';
+import { Account, fetchAccounts } from '@/services/accounts.service';
+import AccountsSection from './AccountsSection.component';
+import AccountCard from './AccountCard.component';
 
 
 // === SETUP =====================================
@@ -26,8 +26,8 @@ afterEach(() => {
 // === MOCKS ====================================
 type MockedFetchAccounts = jest.MockedFunction<typeof fetchAccounts>;
 
-jest.mock('@/services/accounts', () => ({
-  ...jest.requireActual('@/services/accounts'),
+jest.mock('@/services/accounts.service', () => ({
+  ...jest.requireActual('@/services/accounts.service'),
   fetchAccounts: jest.fn(),
 }));
 
