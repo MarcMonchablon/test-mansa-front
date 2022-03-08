@@ -19,18 +19,19 @@ export default function CompanySection(props: CompanySectionProps) {
     { key: 'address', label: 'Address'}
   ];
   return (
-    <section className="section companyInfo">
+    <section className="section section-company">
       <h3 className="section-title">Company</h3>
-      {companyFields.map(({key, label}) =>
-        <p className={`field field--${key}`} key={key}>
-          <span className="field-key">{label}:</span>
-          <span className="field-value">{company[key]}</span>
-        </p>
-      )}
+      <div className="company-info">
+        {companyFields.map(({key, label}) =>
+          <p className="field" data-field-key={key} key={key}>
+            <span className="field-label">{label}: </span>
+            <span className="field-value">{company[key]}</span>
+          </p>
+        )}
+      </div>
     </section>
   );
 }
-
 
 function CompanyInfoSectionSkeleton(status: Status) {
   const errorMessage = (status === Status.ERROR)

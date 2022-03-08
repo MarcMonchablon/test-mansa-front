@@ -7,17 +7,19 @@
 }
 
 .user-page > section {
-  margin-top: 2em;
+  margin-top: 3em;
 }
 .user-page .section-title {
-  margin-bottom: 0.7em;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bold;
+  margin-bottom: 1.4em;
 }
 
 /* Company section */
-.user-page .companyInfo .field-key {
-  display: inline-block;
-  margin-right: 0.4em;
-  font-weight: bold;
+.user-page .company-info .field {
+  font-size: 1.1em;
+  margin-top: 0.5em;
+}
+.user-page .company-info .field:first-child {
+  margin-top: 0;
 }

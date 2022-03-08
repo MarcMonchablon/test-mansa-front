@@ -53,11 +53,15 @@ describe('CompanySection', () => {
     await act(async () => {
       render(<CompanySection siren={MOCK_COMPANY.siren} />, container);
     });
-    const fields: Array<keyof Company> = ['name', 'siret', 'address'];
-    for (const field of fields) {
-      const fieldTextEl = container?.querySelector(`.field--${field} .field-value`) as Element;
-      expect(fieldTextEl.textContent).toBe(MOCK_COMPANY[field]);
-    }
+
+    const nameFieldEl = container?.querySelector('.field[data-field-key="name"]');
+    expect(nameFieldEl).toHaveTextContent('Name: ' + MOCK_COMPANY.name);
+
+    const siretFieldEl = container?.querySelector('.field[data-field-key="siret"]');
+    expect(siretFieldEl).toHaveTextContent('SIRET: ' + MOCK_COMPANY.siret);
+
+    const addressFieldEl = container?.querySelector('.field[data-field-key="address"]');
+    expect(addressFieldEl).toHaveTextContent('Address: ' + MOCK_COMPANY.address);
   });
 
   it('should call entreprise.data.gouv.fr API only once per SIREN', async () => {
