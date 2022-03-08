@@ -36,7 +36,11 @@ describe('AccountCard', () => {
     await act(async () => {
       render(<AccountCard account={MOCK_ACCOUNT} />, container);
     });
-    expect(container?.querySelector('.account-number')).toHaveTextContent('Account Number: 123');
-    expect(container?.querySelector('.account-balance')).toHaveTextContent('Balance: 42 EUR');
+
+    const numberFieldEl = container?.querySelector('.field[data-field-key="account-number"]');
+    expect(numberFieldEl).toHaveTextContent('Account Number: 123');
+
+    const balanceFieldEl = container?.querySelector('.field[data-field-key="balance"]');
+    expect(balanceFieldEl).toHaveTextContent('Balance: 42 EUR');
   });
 });

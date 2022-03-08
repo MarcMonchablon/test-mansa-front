@@ -11,8 +11,14 @@ export default function AccountCard(props: AccountCardProps) {
   if (!account) { return AccountCardSkeleton(); }
   return (
     <div className="account-card" data-account-id={account.id}>
-      <p className="text account-number">Account Number: {account.number}</p>
-      <p className="text account-balance">Balance: {account.balance} {account.currency}</p>
+      <p className="field main-field" data-field-key="account-number">
+        <span className="field-label">Account Number: </span>
+        <span className="field-value">{account.number}</span>
+      </p>
+      <p className="field" data-field-key="balance">
+        <span className="field-label">Balance: </span>
+        <span className="field-value">{account.balance} {account.currency}</span>
+      </p>
     </div>
   );
 }
@@ -20,8 +26,14 @@ export default function AccountCard(props: AccountCardProps) {
 export function AccountCardSkeleton() {
   return (
     <div className="account-card skeleton loading">
-      <p className="text">loading Number: (loading)</p>
-      <p className="text">Balance: (loading)</p>
+      <p className="field main-field" data-field-key="account-number">
+        <span className="field-label">Account Number: </span>
+        <span className="field-value">(loading)</span>
+      </p>
+      <p className="field" data-field-key="balance">
+        <span className="field-label">Balance: </span>
+        <span className="field-value">(loading)</span>
+      </p>
     </div>
   );
 }
