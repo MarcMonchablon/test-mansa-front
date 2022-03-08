@@ -26,7 +26,7 @@ export default function UserPage(props: UserPageProps) {
   const user = props.user;
   return (
     <MainLayout>
-      <div className="page userPage">
+      <div className="page user-page">
         <UserTitle user={user} />
         <CompanySection siren={user.siren || null} />
         <AccountsSection userId={user.id} />

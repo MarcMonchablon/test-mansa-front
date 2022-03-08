@@ -45,7 +45,7 @@ export default function AccountsSection(props: AccountsSectionProps) {
   return (
     <section className="section section-accounts">
       <h3 className="section-title">Accounts</h3>
-      <div className="cards-container">
+      <div className="account-cards-container">
         {(status === Status.OK)
           ? accounts.map(account => <AccountCard account={account} key={account.id} />)
           : <AccountCard />

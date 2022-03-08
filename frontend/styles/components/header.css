@@ -1,7 +1,7 @@
 .main-header {
   padding: 1em 2em;
   color: var(--headerTextColor);
-  border-bottom: 4px solid var(--headerBorderColor);
+  border-bottom: 1px solid var(--headerBorderColor);
   background: var(--headerBackground);
 }
 

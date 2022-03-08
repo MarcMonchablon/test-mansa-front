@@ -7,7 +7,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: var(--testBackground);
 }
 
 .main-header h1 {
@@ -17,6 +16,11 @@ body {
 .page {
   flex-grow: 1;
   padding: 1em;
+  padding-left: 4em;
   color: var(--mainTextColor);
   background: var(--mainBackground);
+}
+
+@media (max-width: 750px) {
+  .page { padding-left: 2em; }
 }

@@ -1,9 +1,12 @@
 body {
-  --headerTextColor: white;
-  --headerBackground: indianred;
-  --headerBorderColor: rgba(0, 0, 0, 0.3);
+  --headerTextColor: #6449D1;
+  --headerBackground: white;
+  --headerBorderColor: #EEEBFA;
 
-  --mainTextColor: indianred;
-  --mainBackground: pink;
-  --testBackground: rgba(0, 0, 0, 0.05);
+  --mainTextColor: #183753;
+  --mainBackground: #F9F9F9;
+
+  --cardTextColor: #6347D1;
+  --cardBackground: #F5F3FB;
+  --cardBorderColor: #CDC5F1;
 }

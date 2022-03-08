@@ -1,0 +1,35 @@
+.account-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(20em, 25em));
+  gap: 1em;
+  max-width: 51em;
+}
+
+.account-card {
+  max-width: 25em;
+  padding: 1.3em 1em;
+  color: var(--cardTextColor);
+  background: var(--cardBackground);
+  border: 1px solid var(--cardBorderColor);
+  border-radius: 0.4em;
+}
+.account-card .field {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8em;
+}
+.account-card .field:first-child {
+  margin-top: 0;
+}
+.account-card .main-field {
+  font-weight: bold;
+}
+
+@media (max-width: 750px) {
+  .account-cards-container {
+    grid-template-columns: repeat(1, minmax(12em, 100%));
+  }
+  .account-card {
+    max-width: 100%;
+  }
+}
