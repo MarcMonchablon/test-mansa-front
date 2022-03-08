@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Company, fetchCompany } from '@/services/company.service';
-import { Status } from '@/models/status.model';
+import React from 'react';
+import useCompany, { Status, Company } from '@/hooks/useCompany.hook';
 
 
 interface CompanySectionProps {
@@ -8,28 +7,7 @@ interface CompanySectionProps {
 }
 
 export default function CompanySection(props: CompanySectionProps) {
-  const [status, setStatus] = useState<Status>(Status.LOADING);
-  const [company, setCompany] = useState<Company | null>(null);
-  useEffect(() => {
-    const fetchData = async() => {
-      if (!props.siren) { setStatus(Status.NO_DATA); return; }
-      fetchCompany(props.siren).then(
-        companyData => {
-          if (companyData) {
-            setCompany(companyData);
-            setStatus(Status.OK);
-          } else {
-            setStatus(Status.NO_DATA);
-          }
-        },
-        error => {
-          console.warn('[useCompany] Could not fetch data: ', error);
-          setStatus(Status.ERROR);
-        }
-      )
-    };
-    fetchData();
-  }, [props.siren])
+  const [status, company] = useCompany(props.siren);
   if (!company) { return null; }
   if (status === Status.LOADING || status === Status.ERROR) {
     return CompanyInfoSectionSkeleton(status);

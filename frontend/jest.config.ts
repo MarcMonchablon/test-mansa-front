@@ -18,6 +18,7 @@ const customJestConfig = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/services/(.*)$': '<rootDir>/services/$1',
     '^@/models/(.*)$': '<rootDir>/models/$1',
+    '^@/hooks/(.*)$': '<rootDir>/hooks/$1',
   },
 }
 

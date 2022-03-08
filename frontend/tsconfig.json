@@ -28,6 +28,9 @@
       "@/models/*": [
         "models/*"
       ],
+      "@/hooks/*": [
+        "hooks/*"
+      ]
     },
     "incremental": true
   },

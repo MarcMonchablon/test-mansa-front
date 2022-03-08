@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Account, fetchAccounts } from '@/services/accounts.service';
-import { Status } from '@/models/status.model';
+import React from 'react';
+import useAccounts, { Status, Account } from '@/hooks/useAccounts.hook';
 import AccountCard from '@/components/AccountsSection/AccountCard.component';
 
 
@@ -9,29 +8,7 @@ interface AccountsSectionProps {
 }
 
 export default function AccountsSection(props: AccountsSectionProps) {
-  const userId = props.userId;
-  const [status, setStatus] = useState<Status>(Status.LOADING);
-  const [accounts, setAccounts] = useState<Account[]>([])
-  useEffect(() => {
-    const fetchData = async() => {
-      fetchAccounts(userId).then(
-        accountsArr => {
-          if (accountsArr.length > 0) {
-            setAccounts(accountsArr);
-            setStatus(Status.OK);
-          } else {
-            setStatus(Status.NO_DATA);
-          }
-        },
-        error => {
-          console.warn('[AccountInfoCardsList] Could not fetch accounts: ', error);
-          setStatus(Status.ERROR);
-        }
-      );
-    }
-    fetchData();
-  }, [userId])
-
+  const [status, accounts] = useAccounts(props.userId);
   if (status === Status.NO_DATA) { return null; }
   if (status === Status.ERROR) {
     return (
@@ -54,6 +31,3 @@ export default function AccountsSection(props: AccountsSectionProps) {
     </section>
   );
 }
-
-
-

@@ -4,7 +4,6 @@ import { act } from 'react-dom/test-utils';
 
 import { Account, fetchAccounts } from '@/services/accounts.service';
 import AccountsSection from './AccountsSection.component';
-import AccountCard from './AccountCard.component';
 
 
 // === SETUP =====================================
@@ -67,7 +66,7 @@ describe('AccountsSection', () => {
   });
 
   it('should only call Mansa API once', async () => {
-    const userId = 'user-id'
+    const userId = 'user-id';
 
     // First render
     await act(async () => {

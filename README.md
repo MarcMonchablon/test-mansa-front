@@ -47,6 +47,15 @@ would be more module-centric:
 
 # Addendum
 
+## About hooks and services
+
+At first, I wanted to move the custom hooks in `company.service.ts` and `accounts.service.ts`,
+but this [broke tests](https://medium.com/welldone-software/jest-how-to-mock-a-function-call-inside-a-module-21c05c57a39f)
+in `CompanySection` and `AccountsSection` unit tests, even though it's an implementation detail.
+So either we left the hooks in their respective components, or we consider them to be shareable /
+we want more separation of concerns for .component files, hence the separate .hook files.
+
+
 ## CSS architecture
 
 My front-end career so far has been more Angular-oriented,
