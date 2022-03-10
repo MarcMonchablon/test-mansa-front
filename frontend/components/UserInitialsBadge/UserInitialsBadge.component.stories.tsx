@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import UserInitialsBadge  from './UserInitialsBadge';
+import UserInitialsBadge from './UserInitialsBadge.component';
 
 
 export default {

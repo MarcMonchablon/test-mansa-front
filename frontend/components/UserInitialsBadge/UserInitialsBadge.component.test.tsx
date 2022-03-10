@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
 import { User } from '@/services/session.service';
-import UserInitialsBadge from './UserInitialsBadge';
+import UserInitialsBadge from './UserInitialsBadge.component';
 
 
 // === SETUP =====================================

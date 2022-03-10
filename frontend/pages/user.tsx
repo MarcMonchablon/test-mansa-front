@@ -8,7 +8,7 @@ import { User, getUser } from '@/services/session.service';
 import MainLayout from '@/components/MainLayout/MainLayout.component';
 import CompanySection from '@/components/CompanySection/CompanySection.component';
 import AccountsSection from '@/components/AccountsSection/AccountsSection.component';
-import UserInitialsBadge from '@/components/UserInitialsBadge/UserInitialsBadge';
+import UserInitialsBadge from '@/components/UserInitialsBadge/UserInitialsBadge.component';
 
 interface UserPageProps {
   user: User;
