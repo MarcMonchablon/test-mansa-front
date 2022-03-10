@@ -26,7 +26,7 @@ export default function UserPage(props: UserPageProps) {
   const user = props.user;
   const userBadgeBackground = '#6347D1';
   return (
-    <MainLayout>
+    <MainLayout title="Mansa - user">
       <div className="page user-page">
         <div className="user-title">
           <UserInitialsBadge user={user} background={userBadgeBackground} />
