@@ -1,11 +1,23 @@
-.user-page h2 {
+.user-page {
+  padding-top: 2em;
+}
+
+/* user title */
+.user-page .user-title {
+  display: flex;
+  align-items: center;
+}
+.user-page .user-title .user-name {
   margin: 0;
+  margin-left: 1rem;
+  font-size: 2em;
+  font-weight: bold;
+}
+.user-page .user-title .lastname {
+  text-transform: uppercase;
 }
 
-.user-page .userTitle .name {
-  font-size: 1.3em;
-}
-
+/* sections */
 .user-page > section {
   margin-top: 3em;
 }

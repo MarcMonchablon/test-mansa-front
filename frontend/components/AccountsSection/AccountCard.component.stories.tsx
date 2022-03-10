@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import AccountCard from './AccountCard.component';
 import { Account } from '@/services/accounts.service';
 
