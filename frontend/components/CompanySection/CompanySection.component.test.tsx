@@ -36,6 +36,7 @@ const MOCK_COMPANY: Company = {
   name: 'Pied Piper',
   siren: 'mock-siren',
   siret: 'mock-siret',
+  creationDate: new Date('2019-07-08'),
   address: 'mock address'
 };
 
@@ -59,6 +60,9 @@ describe('CompanySection', () => {
 
     const siretFieldEl = container?.querySelector('.field[data-field-key="siret"]');
     expect(siretFieldEl).toHaveTextContent('SIRET: ' + MOCK_COMPANY.siret);
+
+    const dateFieldEl = container?.querySelector('.field[data-field-key="creationDate"]');
+    expect(dateFieldEl).toHaveTextContent('Creation date: ' + '08/07/2019');
 
     const addressFieldEl = container?.querySelector('.field[data-field-key="address"]');
     expect(addressFieldEl).toHaveTextContent('Address: ' + MOCK_COMPANY.address);
