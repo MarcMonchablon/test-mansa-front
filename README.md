@@ -5,8 +5,36 @@
 
 My version of Mansa's frontend test :)
 
+It can be seen live at https://test-mansa-front.stupid-domain-name.com/
 
-# Preface: the project scope
+(it's a silly domain I use to host small projects of mine)
+
+
+# Quick reminder:
+
+```
+# Install dependencies
+npm ci --workspace=frontend
+
+# Launch Storybook
+# (not a reminder, but nifty tool nonetheless)
+npm run storybook --workspace=frontend
+
+# Run it
+npm run dev --workspace=frontend
+
+# Test it
+npm run test --workspace=frontend
+
+# Build & start it
+cd frontend/
+npm run build
+PORT=3000 npm run start
+```
+
+# Design notes
+
+## Project scope
 
 One of the first requirement was: "The view should only be for **one** single user."
 
@@ -23,26 +51,86 @@ with the logged-in session logic being (crudely) emulated
 via Next.js `getServerSideProps()`.
 
 
-
-# Marc Monchablon's design document
-
 ## Directory structure
 
-# TODO
-I hesitated between 
+The directory structure here is mostly flat, to keep it simple,
+so expected for those in  /pages expected by Next.js,
+all components are in the `components/` folder,
+Usually in their own directory, (but related components can be put in the same folder),
+with its `test` and `stories` files.
 
-Another, alternative structure that I would use in a real-word project
-would be more module-centric:
+In real-word project, more prone to evolution,
+I would have put most of the current files in a `modules/user/` folder,
+with its own `components/`, `services/` and `hooks/` folders;
+Keeping shared elements in a top-level `components/` and `services/` folders.
 
- - package.json
- - ...
- - modules
-   - user
-     - api
-     - components
- - pages
-   - ...
- 
+I kept a `models/` folder for shared models, but usually I like to keep most
+data models in the related service by default, and only move them in standalone file
+when used in enough place, or when the model get big enough.
+
+
+## File nomenclatures
+
+A component Foobar will have the following file structure:
+```
+components/
+  Foobar/
+    Foobar.component.tsx
+    Foobar.component.test.tsx
+    Foobar.component.story.tsx
+```
+
+In the same vein, services will be suffixed by `.service`,
+Typescript models will be suffixed by `.model`,
+and hooks will be suffixed by `.hook`.
+
+While it's certainly a bit redundant to have
+ - `components/Gizmo/Gizmo.component.tsx`,
+ - `components/Gizmo/Gizmo.component.test.tsx`,
+ - `services/gizmo.service.ts`,
+ - `services/gizmo.service.test.ts`,
+ - `hooks/useGizmo.hook.ts`
+
+the upside of having a more convenient fuzzy search in project's file
+outweighted the cons.
+
+
+### Example workflow
+
+I'm working on the `Gizmo.component.tsx` file, if I want to open Gizmo-related files,
+
+it makes sense to first do a project-wide file search for gizmo-related files, and then specify the file type.
+
+ - `gizserv` will open `service/gizmo.service.ts`,
+ - `gizhook` with open `hooks/useGizmo.hook.ts`,
+ - `gizcomtes` will open `components/Gizmo/Gizmo.component.test.tsx`.
+
+
+## CSS
+
+Most of the CSS is in the `styles/` folder,
+as told in the "CSS architecture" addendum, I felt that a classic CSS approach
+would be cleaner.
+
+I did not use CSS modules here, since there's not a lot of CSS
+to be done.
+
+As for `styled-components`, I used it only for the 'UserInitialsBadge' component,
+which is the kind of use-case I felt would be the most appropriate,
+with a JS-defined background color (and possibly the text-color).
+
+
+## Storybook
+
+On top of the unit tests, (and two meagers E2E tests with `Cypress`),
+I took the liberty to add [Storybook](https://storybook.js.org/), which help
+building a cohesive UI components library.
+
+I've seen it in action, and really liked the idea,
+but I have to confess that I used this project as ginea pig.
+
+So far I liked it a lot! It allows for playing with components in a visual manner,
+and while it feels a bit 'slow' this should have no impact on user-facing performances.
 
 
 # Addendum
