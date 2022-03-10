@@ -1,6 +1,5 @@
 .main-header {
-  padding: 1em 2em;
-  padding-left: var(--pagePaddingLeft);
+  padding: 1.5em 2em 1.7em var(--pagePaddingLeft);
   color: var(--headerTextColor);
   border-bottom: 1px solid var(--headerBorderColor);
   background: var(--headerBackground);

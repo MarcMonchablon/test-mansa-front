@@ -1,0 +1,12 @@
+.mansa-logo {
+  font-family: 'Assistant', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6347d1;
+}
+.mansa-logo__text {
+  color: #6347d1;
+}
+.mansa-logo__dot {
+  color: #ff0c39;
+}
